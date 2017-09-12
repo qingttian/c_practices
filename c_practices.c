@@ -1,43 +1,7 @@
 //
 // Created by qingttian on 17-9-10.
+
 #include <stdio.h>
-
-int main() {
-    int MaxSubseqSum1(int A[], int N) {
-        int ThisSum, MaxSum = 0;
-        int i, j, k;
-        for (i = 0; i < N; i++) { /* i是子列左端位置 */
-            for (j = i; j < N; j++) { /* j是子列右端位置 */
-                ThisSum = 0;  /* ThisSum是从A[i]到A[j]的子列和 */
-                for (k = i; k <= j; k++)
-                    ThisSum += A[k];
-                if (ThisSum > MaxSum) /* 如果刚得到的这个子列和更大 */
-                    MaxSum = ThisSum;    /* 则更新结果 */
-            } /* j循环结束 */
-        } /* i循环结束 */
-        return MaxSum;
-    }
-    int MaxSubseqSum2(int A[], int N) {
-        int ThisSum, MaxSum = 0;
-        int i, j;
-        for (i = 0; i < N; i++) { /* i是子列左端位置 */
-            ThisSum = 0;  /* ThisSum是从A[i]到A[j]的子列和 */
-            for (j = i; j < N; j++) { /* j是子列右端位置 */
-                ThisSum += A[j];        /*对于相同的i，不同的j，只要在j-1次循环的基础上累加1项即可*/
-                if (ThisSum > MaxSum) /* 如果刚得到的这个子列和更大 */
-                    MaxSum = ThisSum;    /* 则更新结果 */
-            } /* j循环结束 */
-        } /* i循环结束 */
-        return MaxSum;
-    }
-    int n, maxd;
-    int A[100];
-    scanf("please input n: %d\n", &n);
-    scanf("pleade input a list: %d", &A);
-    maxd = MaxSubseqSum1(A, n);
-    printf("%d", maxd);
-}
-
 
 int Max3( int A, int B, int C )
 { /* 返回3个整数中的最大值 */
@@ -85,4 +49,38 @@ int DivideAndConquer( int List[], int left, int right )
 int MaxSubseqSum3( int List[], int N )
 { /* 保持与前2种算法相同的函数接口 */
     return DivideAndConquer( List, 0, N-1 );
+}
+
+int MaxSubseqSum2(int A[], int N) {
+    int ThisSum, MaxSum = 0;
+    int i, j;
+    for (i = 0; i < N; i++) { /* i是子列左端位置 */
+        ThisSum = 0;  /* ThisSum是从A[i]到A[j]的子列和 */
+        for (j = i; j < N; j++) { /* j是子列右端位置 */
+            ThisSum += A[j];        /*对于相同的i，不同的j，只要在j-1次循环的基础上累加1项即可*/
+            if (ThisSum > MaxSum) /* 如果刚得到的这个子列和更大 */
+                MaxSum = ThisSum;    /* 则更新结果 */
+        } /* j循环结束 */
+    } /* i循环结束 */
+    return MaxSum;
+}
+
+int MaxSubseqSum1(int A[], int N) {
+    int ThisSum, MaxSum = 0;
+    int i, j, k;
+    for (i = 0; i < N; i++) { /* i是子列左端位置 */
+        for (j = i; j < N; j++) { /* j是子列右端位置 */
+            ThisSum = 0;  /* ThisSum是从A[i]到A[j]的子列和 */
+            for (k = i; k <= j; k++)
+                ThisSum += A[k];
+            if (ThisSum > MaxSum) /* 如果刚得到的这个子列和更大 */
+                MaxSum = ThisSum;    /* 则更新结果 */
+        } /* j循环结束 */
+    } /* i循环结束 */
+    return MaxSum;}
+
+char copyd(char *str ,char *str1){
+    char *i;
+    char *j;
+
 }

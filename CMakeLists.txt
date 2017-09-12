@@ -3,5 +3,5 @@ project(my_c)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES c_practices.c 1.cpp)
-add_executable(c_practices ${SOURCE_FILES} 1.cpp)
+set(SOURCE_FILES main.c c_practices.h)
+add_executable(c_practices ${SOURCE_FILES} 1.c main.c c_practices.c)
