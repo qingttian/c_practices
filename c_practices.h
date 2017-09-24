@@ -13,6 +13,6 @@ int MaxSubseqSum3(int List[], int N);
 
 int MaxSubseqSum1(int A[], int N);
 
-char copyd(char *str ,char * str1)
+char copyd(char *str ,char * str1);
 
 #endif //MY_C_C_PRACTICES_H
